@@ -1,10 +1,10 @@
 import { connect } from "cloudflare:sockets";
 
 // Variables
-let serviceName = "";
-let APP_DOMAIN = "";
+let serviceName = "wgrlinx";
+let APP_DOMAIN = "pages.dev";
 
-let prxIP = "";
+let prxIP = "sjc.o00o.ooo";
 let cachedPrxList = [];
 
 // Constant
