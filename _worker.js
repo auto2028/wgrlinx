@@ -148,7 +148,7 @@ export default {
         const apiPath = url.pathname.replace("/api/v1", "");
 
         if (apiPath.startsWith("/sub")) {
-          const filterCC = url.searchParams.get("cc")?.split(",") || [];
+          const filterCC = url.searchParams.get("cc")?.split(",") || ["US"]; // 默认只显示美国
           const filterPort = url.searchParams.get("port")?.split(",") || PORTS;
           const filterVPN = url.searchParams.get("vpn")?.split(",") || PROTOCOLS;
           const filterLimit = parseInt(url.searchParams.get("limit")) || 10;
@@ -158,7 +158,7 @@ export default {
           const prxBankUrl = url.searchParams.get("prx-list") || env.PRX_BANK_URL;
           const prxList = await getPrxList(prxBankUrl)
             .then((prxs) => {
-              // Filter CC
+              // Filter CC - 只保留美国的代理
               if (filterCC.length) {
                 return prxs.filter((prx) => filterCC.includes(prx.country));
               }
